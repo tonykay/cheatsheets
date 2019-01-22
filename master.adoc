@@ -32,16 +32,24 @@
 | Pass arguments to module
 | `ansible web -m yum -a "name=httpd state=present`
 |===
-<<TOP,Top>>
+
+Common options
+* `-m` module name, e.g. `yum`
+* `-i` inventory source
+** `-i hosts` read inventory from file `hosts`
+** `-i inventory/ec2.py` execute dynamic inventory script
+<<TOP,image:images/home.png[]>>
 
 
 .Ansible Playbook Comamands
 [cols=2]
 |===
-| Simple Ad-Hoc Command
+| Simple A`ansible-playbook` Command
 | `ansible-playbook main.yml`
 
-| Specify specfic host, note `,`
+| Simple A`ansible-playbook` Command
+| `ansible-playbook main.yml`
+
 | `ansible all 192.9.200.1, -m ping`
 
 | Specify inventory file
@@ -50,7 +58,7 @@
 | Pass arguments to module
 | `ansible web -m yum -a "name=httpd state=present`
 |===
-<<TOP,Top>>
+<<TOP,image:images/home.png[]>>
 
 === `ansible.cfg` files
 
@@ -75,4 +83,34 @@ callback_whitelist      = yaml, timer, profile_tasks
 ssh_args                = -F ./ssh.cfg <1>
 ----
 . All ssh configuration encapsulated in `ssh.cfg` file
+
+
+<<TOP,image:home.png[]>>
+
+=== In-Memory Inventory Examples
+
+A common pattern in cloud, VM, or Container creation is to create the objects 
+(e.g. using say `ec2` module) then 
+
+. Get instance facts 
+. Call add-host with instance facts register
+
++
+[source,yaml]
+----
+name: Fetch Instance Info
+  os_server_facts:
+   cloud: ospcloud
+   region_name: RegionOne
+  register: result
+
+- name: Add host
+  add_host:
+    name: "{{ item.public_v4 }}"
+    group: "{{ item.metadata.group }}"
+  loop: "{{ result.ansible_facts.openstack_servers }}"
+----
+
+
+
 
