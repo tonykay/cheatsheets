@@ -1,0 +1,13 @@
+== Useful Cheatsheets
+[[TOP]]
+
+* link:ansible.adoc[Ansible]
+* link:hugo.adoc[Hugo]
+
+
+=== External Cheatsheets
+
+
+* Asciidoc
+** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+** https://powerman.name/doc/asciidoc[AsciiDoc Powerman Cheatsheet]
