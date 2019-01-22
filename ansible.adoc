@@ -1,18 +1,13 @@
 == Useful Cheatsheets
-
 [[TOP]]
 
-=== Cheatsheets
 
 * <<AD_HOC,Ansible Ad-Hoc Commands>>
+* <<PLAYBOOK,Ansible Playbook Commands>>
+* <<ANSIBLECFG,`ansible.cfg` examples>>
 *
 * <<pip,pip>>
 
-=== External Cheatsheets
-
-* Asciidoc
-** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
-** https://powerman.name/doc/asciidoc[AsciiDoc Powerman Cheatsheet]
 
 
 
@@ -85,7 +80,8 @@ ssh_args                = -F ./ssh.cfg <1>
 . All ssh configuration encapsulated in `ssh.cfg` file
 
 
-<<TOP,image:home.png[]>>
+
+<<TOP,image:images/home.png[]>>
 
 === In-Memory Inventory Examples
 
@@ -98,13 +94,13 @@ A common pattern in cloud, VM, or Container creation is to create the objects
 +
 [source,yaml]
 ----
-name: Fetch Instance Info
+name: Fetch Instance Info          <1>
   os_server_facts:
    cloud: ospcloud
    region_name: RegionOne
   register: result
 
-- name: Add host
+- name: Add host                   <2>
   add_host:
     name: "{{ item.public_v4 }}"
     group: "{{ item.metadata.group }}"
@@ -114,3 +110,8 @@ name: Fetch Instance Info
 
 
 
+=== External Cheatsheets
+
+* Asciidoc
+** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+** https://powerman.name/doc/asciidoc[AsciiDoc Powerman Cheatsheet]
