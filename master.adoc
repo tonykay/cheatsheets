@@ -1,0 +1,78 @@
+== Useful Cheatsheets
+
+[[TOP]]
+
+=== Cheatsheets
+
+* <<AD_HOC,Ansible Ad-Hoc Commands>>
+*
+* <<pip,pip>>
+
+=== External Cheatsheets
+
+* Asciidoc
+** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+** https://powerman.name/doc/asciidoc[AsciiDoc Powerman Cheatsheet]
+
+
+
+[[AD-HOC]]
+.Ansible Ad-Hoc Comamands
+[cols=2]
+|===
+| Simple Ad-Hoc Command
+| `ansible all -m ping`
+
+| Specify specfic host, note `,`
+| `ansible all 192.9.200.1, -m ping`
+
+| Specify inventory file
+| `ansible all -i inventory -m ping`
+
+| Pass arguments to module
+| `ansible web -m yum -a "name=httpd state=present`
+|===
+<<TOP,Top>>
+
+
+.Ansible Playbook Comamands
+[cols=2]
+|===
+| Simple Ad-Hoc Command
+| `ansible-playbook main.yml`
+
+| Specify specfic host, note `,`
+| `ansible all 192.9.200.1, -m ping`
+
+| Specify inventory file
+| `ansible all -i inventory -m ping`
+
+| Pass arguments to module
+| `ansible web -m yum -a "name=httpd state=present`
+|===
+<<TOP,Top>>
+
+=== `ansible.cfg` files
+
+* Precedence
+**
+**
+**
+**
+
++
+Sample `ansible.cfg` with callbacks enabled
++
+[source,bash]
+----
+[defaults]
+inventory               = inventory
+stdout_callback         = default
+bin_ansible_callbacks   = True
+callback_whitelist      = yaml, timer, profile_tasks
+
+[ssh_connection]
+ssh_args                = -F ./ssh.cfg <1>
+----
+. All ssh configuration encapsulated in `ssh.cfg` file
+
