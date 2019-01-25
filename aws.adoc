@@ -1,0 +1,56 @@
+== AWS Cheatsheets
+[[TOP]]
+
+
+* <<S3,S3 - Simple Storage Service>>
+
+
+
+[[S3]]
+.S3
+[cols=2]
+|===
+| List S3 buckets
+| `aws s3 ls`
+
+| List the contents of an S3 bucket
+| `aws s3 ls s3://<bucket-name>`
+
+
+
+| Create a new bucket
+| `aws s3 mb s3://<bucket-name>`
+
+| Remove a bucket (must be empty)
+| `aws s3 rb s3://<bucket-name>`
+
+| Sync local object to a bucket
+| `aws s3 sync <local> s3://<bucket-name>`
+
+| Copy a local object to a bucket
+| `aws s3 cp <local> s3://<bucket-name>`
+
+| Copy from a bucket
+| `aws s3 cp s3://<bucket-name><object> <local-destination>`
+
+
+| Move an object
+| `aws s3 mv s3://<bucket-name><object> <local-destination>`
+
+| Remove or delete an object
+| `aws s3 rm s3://<bucket-name><object>`
+
+| Sync objects local to bucket
+| `aws s3 sync s3://<bucket-name><object>`
+
+| Copy all objects bucket to bucket
+| `aws s3 cp s3://<source-bucket-name> s3://<destination-bucket-name`
+
+|===
+
+Common options
+
+* `--profile` boto profile e.e. `--profile aws-production`
+
+<<TOP,image:images/home.png[]>>
+

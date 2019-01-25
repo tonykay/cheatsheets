@@ -29,11 +29,15 @@
 |===
 
 Common options
+
 * `-m` module name, e.g. `yum`
 * `-i` inventory source
 ** `-i hosts` read inventory from file `hosts`
 ** `-i inventory/ec2.py` execute dynamic inventory script
-<<TOP,image:images/home.png[]>>
+
+
+link:master.adoc[image:images/home.png[Master]Master]
+<<TOP,image:images/home.png[Top]Top>>
 
 
 .Ansible Playbook Comamands
@@ -115,3 +119,5 @@ name: Fetch Instance Info          <1>
 * Asciidoc
 ** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
 ** https://powerman.name/doc/asciidoc[AsciiDoc Powerman Cheatsheet]
+<<TOP,image:images/home.png[]>>
+link:master.adoc[Master]

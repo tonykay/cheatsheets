@@ -2,6 +2,7 @@
 [[TOP]]
 
 * link:ansible.adoc[Ansible]
+* link:aws.adoc[AWS]
 * link:hugo.adoc[Hugo]
 
 
