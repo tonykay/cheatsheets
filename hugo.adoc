@@ -1,0 +1,48 @@
+== Hugo Cheatsheet
+
+link:https://gohugo.io/[Hugo main site]
+[[TOP]]
+
+////
+* <<AD_HOC,Ansible Ad-Hoc Commands>>
+* <<PLAYBOOK,Ansible Playbook Commands>>
+* <<ANSIBLECFG,`ansible.cfg` examples>>
+*
+////
+
+
+[[AD-HOC]]
+.Hugo Commands
+[cols=2]
+|===
+
+|New post
+|`hugo new posts/my-first-post.md`
+
+|New Site      
+|`hugo new site <foo>`
+
+| Build site
+| `hugo`
+
+|Run server and build drafts
+|`hugo server  --buildDrafts` or `-D`
+
+|Run on a different port (default 1312)
+|`hugo server -D --port=1314`
+
+|===
+
+include::ansible.adoc[]
+
+link:master.adoc[image:images/home.png[Master]Master]
+<<TOP,image:images/home.png[Top]Top>>
+
+
+.Highlighting Code snippets
+
+{{< highlight bash >}}
+$ pip install virtualenv virtualenvwrapper
+{{< /highlight >}}
+
+

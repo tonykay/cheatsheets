@@ -1,0 +1,294 @@
+== Useful Cheatsheets
+[[TOP]]
+
+
+* <<GENERAL,General Commands>>
+* <<PLAYBOOK,Ansible Playbook Commands>>
+* <<ANSIBLECFG,`ansible.cfg` examples>>
+*
+* <<pip,pip>>
+
+
+
+
+[[GENERAL]]
+.General Docker Commands
+[cols=2]
+|===
+| Simple Ad-Hoc Command
+| `ansible all -m ping`
+
+| Specify specfic host, note `,`
+| `ansible all 192.9.200.1, -m ping`
+
+| Specify inventory file
+| `ansible all -i inventory -m ping`
+
+| Pass arguments to module
+| `ansible web -m yum -a "name=httpd state=present`
+|===
+
+Common options
+
+* `-m` module name, e.g. `yum`
+* `-i` inventory source
+** `-i hosts` read inventory from file `hosts`
+** `-i inventory/ec2.py` execute dynamic inventory script
+
+
+link:master.adoc[image:images/home.png[Master]Master]
+<<TOP,image:images/home.png[Top]Top>>
+
+
+.Ansible Playbook Comamands
+[cols=2]
+|===
+| Simple A`ansible-playbook` Command
+| `ansible-playbook main.yml`
+
+| Simple A`ansible-playbook` Command
+| `ansible-playbook main.yml`
+
+| `ansible all 192.9.200.1, -m ping`
+
+| Specify inventory file
+| `ansible all -i inventory -m ping`
+
+| Pass arguments to module
+| `ansible web -m yum -a "name=httpd state=present`
+|===
+<<TOP,image:images/home.png[]>>
+
+=== `ansible.cfg` files
+
+* Precedence
+**
+**
+**
+**
+
++
+Sample `ansible.cfg` with callbacks enabled
++
+[source,bash]
+----
+[defaults]
+inventory               = inventory
+stdout_callback         = default
+bin_ansible_callbacks   = True
+callback_whitelist      = yaml, timer, profile_tasks
+
+[ssh_connection]
+ssh_args                = -F ./ssh.cfg <1>
+----
+. All ssh configuration encapsulated in `ssh.cfg` file
+
+
+
+<<TOP,image:images/home.png[]>>
+
+=== In-Memory Inventory Examples
+
+A common pattern in cloud, VM, or Container creation is to create the objects 
+(e.g. using say `ec2` module) then 
+
+. Get instance facts 
+. Call add-host with instance facts register
+
++
+[source,yaml]
+----
+name: Fetch Instance Info          <1>
+  os_server_facts:
+   cloud: ospcloud
+   region_name: RegionOne
+  register: result
+
+- name: Add host                   <2>
+  add_host:
+    name: "{{ item.public_v4 }}"
+    group: "{{ item.metadata.group }}"
+  loop: "{{ result.ansible_facts.openstack_servers }}"
+----
+
+
+
+
+=== External Cheatsheets
+
+* Asciidoc
+** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+** https://powerman.name/doc/asciidoc[AsciiDoc Powerman Cheatsheet]
+<<TOP,image:images/home.png[]>>
+link:master.adoc[Master]
+: 1536056203:0;mv /Users/tok/google/courses/ansible/tok/docker-ansible-labs/lab-standalone lab_env
+: 1536172960:0;h docker
+: 1537968611:0;brew link docker-machine
+: 1537977392:0;cd docker-ssh-systemd
+: 1538404384:0;docker run standalone
+: 1538670520:0;docker run 2stacks/vyos
+: 1538702243:0;cat lab_env/utilities/docker_aliases.env
+: 1538702286:0;docker start standalone
+: 1538703790:0;docker info
+: 1538703833:0;docker describe standalone
+: 1538703843:0;docker info standalone
+: 1538703875:0;docker inspect standalone
+: 1539702536:0;cd docker-ansible-labs/lab
+: 1539706925:0;gc -am "Enabled docker image to be passed per host, blueprints need fixed for this"
+: 1539980959:0;source ./utilities/docker_aliases.env
+: 1539980963:0;cat ./utilities/docker_aliases.env
+: 1540142279:0;file docker.hlp.tmp
+: 1540142283:0;head docker.hlp.tmp
+: 1540142294:0;wc -l docker.hlp.tmp
+: 1540142302:0;vim docker.hlp.tmp
+: 1540142317:0;rm docker.hlp.tmp
+: 1540312054:0;docker run apache
+: 1540316084:0;source utilities/docker_aliases.env
+: 1540316138:0;docker run ansible
+: 1540316168:0;docker run ansible/ansible
+: 1540316185:0;docker pull ansible/ansible
+: 1540316212:0;docker pull ansible/centos7-ansible
+: 1540584786:0;ansible-inventory -i docker.py
+: 1540584797:0;ansible-inventory -i docker.py --list
+: 1540584814:0;ansible-inventory -i docker.py --list | less
+: 1540584847:0;ansible-inventory -i docker.py --host frontend1
+: 1540584872:0;vim docker.yml
+: 1540652786:0;molecule init role tonykay.example -d docker
+: 1540652799:0;molecule init role -r tonykay.example -d docker
+: 1540728812:0;docker halt tower
+: 1540728844:0;docker run --memory=4g tower
+: 1540728861:0;docker run --memory=4g c5f01fc2b0ac
+: 1540728879:0;docker start --memory=4g tower
+: 1540729093:0;docker start tower
+: 1540731036:0;docker stop tower
+: 1541112658:0;vim docker_setup.yml
+: 1541509678:0;vim docker-ansible-labs
+: 1541509686:0;vim docker-ansible-labs/lab_create.yml
+: 1542125883:0;oc new-app --docker-image=docker.io/wkulhanek/logtofile:latest\
+: 1542143488:0;oc new-app docker.io/rocketchat/rocket.chat:0.63.3 -e MONGO_URL="mongodb://mongodb_user:mongodb_password@mongodb:27017/mongodb?replicaSet=rs0"\
+: 1542293490:0;ls docker_copy_to_cluster.sh
+: 1542293496:0;cat docker_copy_to_cluster.sh
+: 1542293512:0;docker images
+: 1542294938:0;oc new-build  -D $'FROM docker.io/openshift/jenkins-agent-maven-35-centos7:v3.11\n\
+        --dest-creds=admin:admin123 docker://docker-registry-default.apps.5183.openshift.opentlc.com/tok-jenkins/jenkins-agent-appdev \\
+         docker://nexus-registry-tok-nexus.apps.5183.openshift.opentlc.com/tok-jenkins/jenkins-agent-maven-appdev:v3.11\
+        --dest-creds=admin:admin123 docker://docker-registry-default.apps.5183.openshift.opentlc.com/tok-jenkins/jenkins-agent-appdev \\
+         docker://nexus-registry-tok-nexus.apps.5183.openshift.opentlc.com/tok-jenkins/jenkins-agent-maven-appdev:v3.11\
+        --dest-creds=admin:admin123 docker://docker-registry-default.apps.5183.openshift.opentlc.com/tok-jenkins/jenkins-agent-appdev \\
+         docker://nexus-registry-tok-nexus.apps.5183.openshift.opentlc.com/tok-jenkins/jenkins-agent-maven-appdev:v3.11\
+: 1542322769:0;docker run gogs
+: 1542322805:0;docker run gogs/gogs
+: 1542323158:0;docker info b39d1e1b5e4e
+: 1542323168:0;docker describe b39d1e1b5e4e
+: 1542323177:0;docker inspect b39d1e1b5e4e
+: 1542323214:0;docker curl 172.17.0.7:3000
+: 1542382447:0;docker login -u ankay-redhat.com -p $(oc whoami -t) docker-registry-default.apps.wlg.example.opentlc.com
+: 1542382471:0;docker login -u ankay-redhat.com -p $(oc whoami -t) docker-registry-default.apps.5183.openshift.opentlc.com
+: 1542382518:0;docker login -u user98 -p $(oc whoami -t) docker-registry-default.apps.5183.openshift.opentlc.com
+: 1542382539:0;gh docker | grep login
+: 1544536492:0;ansible-test sanity -v --docker --python 2.7 my_new_test_module
+: 1545155633:0;molecule init role -r geerlingguy.example -d docker\
+: 1547478978:0;cd docker-ansible-runtimes
+: 1547640810:0;./docker.py --list
+: 1547640818:0;./docker.py --list | jq .
+: 1547641180:0;chmod +x ./docker.py
+: 1547641182:0;./docker.py
+: 1547641185:0;ansible all -i ./docker.py -m setup --tree /tmp/docker
+: 1547641198:0;ls /tmp/docker
+: 1547641224:0;cd /tmp/docker
+: 1547808938:0;cat utilities/docker_aliases.env
+: 1547808955:0;. utilities/docker_aliases.env
+: 1547809260:0;mv docker.py docker.yml inventory
+: 1547809431:0;git branch docker-networking-role
+: 1547809489:0;ansible-galaxy init docker-networking
+: 1547809510:0;cp ../lab_create.yml docker-networking/tasks/main.yml
+: 1547809528:0;cp ../blueprints/three_tier_vars.yml docker-networking/defaults/main.yml
+: 1547809535:0;vim docker-networking/defaults/main.yml
+: 1547809636:0;vim docker-networking/tasks/main.yml
+: 1547809938:0;git checkout docker-networking-role 
+: 1547809961:0;gc -am "Moved the docker networking to a role"
+: 1547810020:0;git merge docker-networking-role 
+: 1547902576:0;mkvirtualenv docker
+: 1547902785:0;pip install docker-compose -U
+: 1547902805:0;tn docker
+: 1547902924:0;cat inventory/docker.
+: 1547902926:0;cat inventory/docker.py
+: 1547902956:0;chmod +x ./inventory/docker.py
+: 1547902971:0;ansible-inventory --graph -i inventory/docker.py
+: 1547991529:0;pip remove docker-py
+: 1547991536:0;pip uninstall docker-py
+: 1547992117:0;ta docker-lab
+: 1547992124:0;tn docker-lab
+: 1547992136:0;cd tok/docker-ansible-labs
+: 1547992153:0;pip install docker-py -U
+: 1547992199:0;pip show docker-py
+: 1547992373:0;rm -fr ~/Dropbox/virtual-envs/docker
+: 1547992538:0;mkvirtualenv --python=$(which python3) docker
+: 1547992670:0;rm __pycache__ docker.py docker.pyc
+: 1547992830:0;./inventory/docker.py | jq
+: 1547992958:0;mv docker-networking create-docker-networks
+: 1547992978:0;ansible-galaxy init create-docker-instances
+: 1547992994:0;cp ../dynamic_lab.yml create-docker-instances/tasks/main.yml
+: 1547992998:0;vim create-docker-instances/tasks/main.yml
+: 1547993051:0;vim ../docker.yml
+: 1547993541:0;cat docker.yml
+: 1547993575:0;rm docker.yml
+: 1547993633:0;gc -am "Moved entire lab_create to roles based, added new docker.py inventory script"
+: 1547994808:0;docker inspect bastion
+: 1547994824:0;docker inspect appdb2
+: 1547994906:0;./inventory/docker.py
+: 1547994913:0;./inventory/docker.py --host bastion
+: 1547994920:0;./inventory/docker.py --host bastion | wc -l
+: 1547994926:0;./inventory/docker.py --host bastion | wc 
+: 1547994935:0;./inventory/docker.py --list | wc 
+: 1547994946:0;./inventory/docker.py --list | jq
+: 1547996211:0;cp lab_create.yml try_docker_container_facts.yml
+: 1547996252:0;git add try_docker_container_facts.yml
+: 1548026146:0;docker all -i inventory/docker.py -m ping
+: 1548026188:0;ansible all -i inventory/docker.py -m ping
+: 1548797706:0;vim roles/create-docker-instances/tasks/main.yml
+: 1548876707:0;workon docker
+: 1549031438:0;cd docker-
+: 1549031441:0;cd docker-ansible-labs
+: 1549071061:0;mcd docker
+: 1549071098:0;cd docker
+: 1549071831:0;docker ps
+: 1549080307:0;tn docker-net
+: 1549080564:0;docker network ls
+: 1549081440:0;docker network inspect bridge three_tier_network
+: 1549081461:0;docker network inspect three_tier_network
+: 1549081508:0;docker network inspect bridge
+: 1549081512:0;docker network inspect bridge | jq
+: 1549081585:0;pip install docker -U
+: 1549081601:0;pip install docker -U --user
+: 1549108339:0;docker run hello-world
+: 1549108364:0;docker run -it centos bash
+: 1549108400:0;docker run -it ubuntu bash
+: 1549108432:0;docker image list
+: 1549108469:0;docker run tonykay/centos-ssh-systemd
+: 1549108508:0;docker run tonykay/centos-systemd-ssh
+: 1549108581:0;docker run -it tonykay/centos-systemd-ssh bash
+: 1549108977:0;docker ps
+: 1549108994:0;docker stop 075e4ed8cd12  
+: 1549109012:0;h docker
+: 1549109064:0;docker -v
+: 1549109145:0;docker container run apline echo "Hello World"
+: 1549109157:0;docker container run alpine echo "Hello World"
+: 1549109193:0;docker run alpine echo "Hello World"
+: 1549109248:0;docker run tonykay/centos-system-d-ssh echo "Hello World"
+: 1549109258:0;docker run tonykay/centos-systemd-ssh echo "Hello World"
+: 1549109272:0;docker run tonykay/centos-systemd-ssh -it bash
+: 1549109288:0;docker run -it tonykay/centos-systemd-ssh bash
+: 1549109315:0;docker run -it tonykay/centos-systemd-ssh bash &
+: 1549109327:0;docker inspect
+: 1549109336:0;docker inspect ce755f296bbe
+: 1549109695:0;docker list images
+: 1549109703:0;docker image list
+: 1549109742:0;vim docker.adoc
+: 1549109759:0;mv README.adoc docker.adoc
+: 1549109816:0;cp ../../tok/cheatsheets/template.adoc ../../tok/cheatsheets/docker.adoc
+: 1549109823:0;gh docker
+: 1549109851:0;gh docker > ../../tok/cheatsheets/docker.adoc
+: 1549109855:0;vim ../../tok/cheatsheets/docker.adoc
+: 1549109867:0;cp ../../tok/cheatsheets/template.adoc ../../tok/cheatsheets/docker.adoc
+: 1549109881:0;gh docker >> ../../tok/cheatsheets/docker.adoc
