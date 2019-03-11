@@ -1,3 +1,11 @@
+---
+title: "Hugo Cheatsheet"
+date: 2019-02-17T08:07:38-07:00
+linktitle: "Hugo Cheatsheet"
+slug: cheatsheet-hugo
+draft: true
+---
+
 == Hugo Cheatsheet
 
 link:https://gohugo.io/[Hugo main site]

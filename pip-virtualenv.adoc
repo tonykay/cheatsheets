@@ -1,12 +1,15 @@
 ---
-title: "Ansible Cheatsheet"
+title: "Pip and Virtualenv Cheatsheet"
 date: 2019-02-17T08:07:38-07:00
-linktitle: "Ansible Cheatsheet"
-slug: cheatsheet-ansible
+linktitle: "Pip, Virtualenv, and virtualenv manager Cheatsheet"
+slug: cheatsheet-pip-virtualenv
 draft: true
 ---
 
 == Useful Cheatsheets
+
+
+
 [[TOP]]
 
 
@@ -16,9 +19,21 @@ draft: true
 *
 * <<pip,pip>>
 
+=== TL:DR
+
+In a hurry? Minimal commands to start using a viirtualenv with pip and virtualenvwrapper
+
+pip install virtualenv virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source ~/.zshrc
+mkvirtualenv
+
+
+
+
 
 [[AD-HOC]]
-.Ansible Ad-Hoc Comamands
+.Basic pip commands
 [cols=2]
 |===
 | Simple Ad-Hoc Command
