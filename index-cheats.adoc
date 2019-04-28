@@ -1,7 +1,7 @@
 ---
 title: Cheatsheets
 date: 2019-02-11
-linktitle: Index of Cheetsheets
+linktitle: Cheetsheet Index
 slug: index-cheatsheets
 #thumbnail: "images/virtualenv_iterm.png"
 menu:
@@ -14,17 +14,10 @@ tags:
   - cheatsheets
 ---
 
-== Useful Cheatsheets
-[[TOP]]
-
 * link:/cheatsheets/cheatsheet-ansible/[Ansible]
-* link:/cheatsheets/cheatsheet-aws/[AWS - Draft, work in progress]
-* link:/cheatsheets/cheatsheet-hugo/[Hugo]
+* link:/cheatsheets/cheatsheet-asciidoc/[Asciidoc]
+* link:/cheatsheets/cheatsheet-pip[pip]
+* link:/cheatsheets/cheatsheet-virtualenv[virtualenvs]
+* link:/cheatsheets/cheatsheet-aws/[DRAFT AWS - Draft, work in progress]
+* link:/cheatsheets/cheatsheet-hugo/[DRAFT Hugo]
 
-
-=== External Cheatsheets
-
-
-* Asciidoc
-** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
-** https://powerman.name/doc/asciidoc[AsciiDoc Powerman Cheatsheet]

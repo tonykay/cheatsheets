@@ -1,0 +1,68 @@
+---
+title: "FOO Cheatsheets"
+date: 2019-02-17T08:07:38-07:00
+linktitle: "foo"
+slug: cheatsheet-aws
+---
+
+[[TOP]]
+
+* <<S3,S3 - Simple Storage Service>>
+
+// image::/images/virtual_env.png[width=95%,align="center"]
+// [width="90%",cols="2",options="header"]
+// [cols="70%,30%"]
+// | image:/images/virtual_env.png[width=100%] image:/images/virtual_env.png[width=100%]
+// | image:/images/virtual_env.png[width=300%]
+
+
+[[S3]]
+.S3 - Simple Storage Service Commands
+[cols="60%,40%"]
+|===
+| Task | Command
+
+| List S3 buckets
+| `aws s3 ls`
+
+| List the contents of an S3 bucket
+| `aws s3 ls s3://<bucket-name>`
+
+| Create a new bucket
+| `aws s3 mb s3://<bucket-name>`
+
+| Remove a bucket (must be empty)
+| `aws s3 rb s3://<bucket-name>`
+
+| Sync local object to a bucket
+| `aws s3 sync <local> s3://<bucket-name>`
+
+| Copy a local object to a bucket
+| `aws s3 cp <local> s3://<bucket-name>`
+
+| Copy from a bucket
+| `aws s3 cp s3://<bucket-name><object> <local-destination>`
+
+| Move an object
+| `aws s3 mv s3://<bucket-name><object> <local-name>`
+
+| Remove or delete an object
+| `aws s3 rm s3://<bucket-name><object>`
+
+| Empty a bucket of all objects
+| `aws s3 rm s3://<bucket-name> --recursive`
+
+| Sync objects local to bucket
+| `aws s3 sync s3://<bucket-name><object>`
+
+| Copy all objects bucket to bucket
+| `aws s3 cp s3://<source-bucket> s3://<destination-bucket`
+
+|===
+
+Common options
+
+* `--profile` boto profile e.e. `--profile aws-production`
+
+<<TOP,image:/images/home.png[]>>
+

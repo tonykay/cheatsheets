@@ -1,0 +1,78 @@
+---
+title: "Hugo Cheatsheet"
+date: 2019-02-17T08:07:38-07:00
+linktitle: "Hugo Cheatsheet"
+slug: cheatsheet-hugo
+draft: true
+---
+
+== Hugo Asciidoc Cheatsheet
+
+This is a highly personlized cheatsheet I use to store shortcuts and cheats for my own asciidoc blog articles published via hugo. Shared in case it is useful.
+
+
+=== Source Code Syntax Highlighting
+
+1) Use traditional asciidoc syntax:
+
+
+[source,bash]
+----
+export WORKON_HOME=$HOME/.virtualenvs                 <1>
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+----
+
+2) Use shortcodes
+
+{{< highlight bash  >}}
+$ source ~/.zshrc
+{{< /highlight >}}
+
+
+link:https://gohugo.io/[Hugo main site]
+[[TOP]]
+
+////
+* <<AD_HOC,Ansible Ad-Hoc Commands>>
+* <<PLAYBOOK,Ansible Playbook Commands>>
+* <<ANSIBLECFG,`ansible.cfg` examples>>
+*
+////
+
+
+[[AD-HOC]]
+.Hugo Commands
+[cols=2]
+|===
+
+|New post
+|`hugo new posts/my-first-post.md`
+
+|New Site      
+|`hugo new site <foo>`
+
+| Build site
+| `hugo`
+
+|Run server and build drafts
+|`hugo server  --buildDrafts` or `-D`
+
+|Run on a different port (default 1312)
+|`hugo server -D --port=1314`
+
+|===
+
+include::ansible.adoc[]
+
+link:master.adoc[image:images/home.png[Master]Master]
+<<TOP,image:images/home.png[Top]Top>>
+
+
+.Highlighting Code snippets
+
+{{< highlight bash >}}
+$ pip install virtualenv virtualenvwrapper
+{{< /highlight >}}
+
+

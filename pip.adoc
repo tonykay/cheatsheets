@@ -2,7 +2,7 @@
 title: "Pip and Virtualenv Cheatsheet"
 date: 2019-02-17T08:07:38-07:00
 linktitle: "Pip, Virtualenv, and virtualenv manager Cheatsheet"
-slug: cheatsheet-pip-virtualenv
+slug: cheatsheet-pip
 draft: true
 ---
 
@@ -38,7 +38,19 @@ draft: true
 | `pip install ansible`
 |===
 
+////
+[frame="none",cols=2,width="40%"]
+|===
+|{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">home</i> {{< /rawhtml >}} link:/cheatsheets/index-cheatsheets[Master] 
+| <<TOP,{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">view_list</i> {{< /rawhtml >}}Top of Page>> 
+|===
+////
 
+{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">home</i> {{< /rawhtml >}} link:/cheatsheets/index-cheatsheets[Master] <<TOP,{{< rawhtml >}}<i class="material-icons md-dark md-inactive">view_list</i> {{< /rawhtml >}}Top of Page>> 
+
+////
+<<TOP,{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">view_list</i> {{< /rawhtml >}} <<TOP[Top of Page]>> 
+////
 
 === Isolating and Deploying Dependencies
 

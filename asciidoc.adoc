@@ -1,0 +1,49 @@
+---
+title: "Hugo Cheatsheet"
+date: 2019-02-17T08:07:38-07:00
+linktitle: "Hugo Cheatsheet"
+slug: cheatsheet-asciidoc
+draft: true
+---
+
+:toc:·
+:toc-title: Sections
+
+
+== Table of Contents
+
+.TOC
+[cols=2]
+|===
+
+|Insert Table of Contents
+|`:toc:`
+|`hugo new posts/my-first-post.md`
+
+|New Site      
+|`hugo new site <foo>`
+
+| Build site
+| `hugo`
+
+|Run server and build drafts
+|`hugo server  --buildDrafts` or `-D`
+
+|Run on a different port (default 1312)
+|`hugo server -D --port=1314`
+
+|===
+
+include::ansible.adoc[]
+
+link:master.adoc[image:images/home.png[Master]Master]
+<<TOP,image:images/home.png[Top]Top>>
+
+
+.Highlighting Code snippets
+
+{{< highlight bash >}}
+$ pip install virtualenv virtualenvwrapper
+{{< /highlight >}}
+
+

@@ -2,7 +2,7 @@
 title: "Pip and Virtualenv Cheatsheet"
 date: 2019-02-17T08:07:38-07:00
 linktitle: "Pip, Virtualenv, and virtualenv manager Cheatsheet"
-slug: cheatsheet-pip-virtualenv
+slug: cheatsheet-pip
 draft: true
 ---
 
