@@ -19,13 +19,13 @@ link:/cheatsheets/index-cheatsheets[{{< rawhtml >}}<p><i class="material-icons m
 | Install a python package
 | `pip install ansible`
 
-| Install a specfic package version
+| Install a specific package version
 | `pip install ansible==2.7.8`
 
 | Uninstall a python package
 | `pip uninstall ansible`
 
-| See what versions are available (use illegal versioni string!)
+| See what versions are available (use illegal version string!)
 | `pip install ansible==foobar`
 
 | Upgrade a package
@@ -46,7 +46,7 @@ link:/cheatsheets/index-cheatsheets[{{< rawhtml >}}<p><i class="material-icons m
 | `pip list --outdated`
 
 | Upgrade installed package
-|  `pip install --upgrade  ansible`  or `-U` 
+|  `pip install --upgrade  ansible`  or `-U`
 
 | Capture installed packages
 | `pip freeze > requirements.txt`
@@ -55,119 +55,25 @@ link:/cheatsheets/index-cheatsheets[{{< rawhtml >}}<p><i class="material-icons m
 | `pip freeze -r requirements.txt`
 |===
 
+==== Deleting secondary dependencies, not so easy, hacky solution? :(
 
-Deleting secondary dependencies - not easy :(
+. Capture your dependencies `pip freeze > requirements.ym;`
+. Edit `requirements.yml` removing unwanted dependencies
+. Make a new virtualenv
+. Install your new dependencies list `pip install -r requirements.yml`
 
 
-link:/cheatsheets/index-cheatsheets[{{< rawhtml >}}<p><i class="material-icons md-dark md-active">home</i> {{< /rawhtml >}}  Master] <<TOP,{{< rawhtml >}}<i class="material-icons md-dark md-active">toc</i> {{< /rawhtml >}}Top of Page>> 
+link:/cheatsheets/index-cheatsheets[{{< rawhtml >}}<p><i class="material-icons md-dark md-active">home</i> {{< /rawhtml >}}  Master] <<TOP,{{< rawhtml >}}<i class="material-icons md-dark md-active">toc</i> {{< /rawhtml >}}Top of Page>>
 
+
+== Resources
+
+* link:https://https://pypi.org/[Python Package Index (PyPI)]
+* link:https://pip.pypa.io/en/stable/[Pip Documentation]
+* link:https://docs.python.org/3/installing/index.html[Installing Packages - Python Documentation]
+
+////
 === Isolating and Deploying Dependencies
 
 link:https://12factor.net/dependencies[Isolate Dependencies!]
-
-
-
-
-=== Managing Vitual envs
-
-
-
-
-
-
-
-Common options
-
-* `-m` module name, e.g. `yum`
-* `-i` inventory source
-** `-i hosts` read inventory from file `hosts`
-** `-i inventory/ec2.py` execute dynamic inventory script
-
-{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">home</i> {{< /rawhtml >}} link:/cheatsheets/index-cheatsheets[Master] <<TOP,image:images/home.png[Top of Page]>>
-
-
-.Ansible Playbook Comamands
-[cols=2]
-|===
-| Simple A`ansible-playbook` Command
-| `ansible-playbook main.yml`
-
-| Simple A`ansible-playbook` Command
-| `ansible-playbook main.yml`
-
-| `ansible all 192.9.200.1, -m ping`
-
-| Specify inventory file
-| `ansible all -i inventory -m ping`
-
-| Pass arguments to module
-| `ansible web -m yum -a "name=httpd state=present`
-|===
-<<TOP,image:images/home.png[]>>
-
-=== `ansible.cfg` files
-
-* Precedence
-**
-**
-**
-**
-
-+
-Sample `ansible.cfg` with callbacks enabled
-+
-[source,bash]
-----
-[defaults]
-inventory               = inventory
-stdout_callback         = default
-bin_ansible_callbacks   = True
-callback_whitelist      = yaml, timer, profile_tasks
-
-[ssh_connection]
-ssh_args                = -F ./ssh.cfg <1>
-----
-. All ssh configuration encapsulated in `ssh.cfg` file
-
-
-
-<<TOP,image:images/home.png[]>>
-
-=== In-Memory Inventory Examples
-
-A common pattern in cloud, VM, or Container creation is to create the objects 
-(e.g. using say `ec2` module) then 
-
-. Get instance facts 
-. Call add-host with instance facts register
-
-+
-[source,yaml]
-----
-name: Fetch Instance Info          <1>
-  os_server_facts:
-   cloud: ospcloud
-   region_name: RegionOne
-  register: result
-
-- name: Add host                   <2>
-  add_host:
-    name: "{{ item.public_v4 }}"
-    group: "{{ item.metadata.group }}"
-  loop: "{{ result.ansible_facts.openstack_servers }}"
-----
-
-
-pip install virtualenv virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source ~/.zshrc
-mkvirtualenv
-
-
-=== External Cheatsheets
-
-* Asciidoc
-** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
-** https://powerman.name/doc/asciidoc[AsciiDoc Powerman Cheatsheet]
-<<TOP,image:images/home.png[]>>
-link:master.adoc[Master]
+////
