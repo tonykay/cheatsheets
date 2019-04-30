@@ -1,16 +1,15 @@
 ---
-title: "Pip Cheatsheet"
+title: "Git Cheatsheet"
 date: 2019-04-30
-linktitle: "Pip Cheatsheet"
-slug: cheatsheet-pip
-tags:
-  - cheatsheets
+linktitle: "Basic Git Cheatsheet"
+slug: cheatsheet-git
+draft: true
 ---
 
 :toc: 
 :toc-title: Sections
 
-=== Basic Pip Commands
+=== Basic Git Commands
 
 [cols=2]
 |===

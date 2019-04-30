@@ -1,5 +1,5 @@
 ---
-title: Cheatsheets
+title: Cheatsheets Master Landing Page
 date: 2019-02-11
 linktitle: Cheetsheet Index
 slug: index-cheatsheets
@@ -14,9 +14,13 @@ tags:
   - cheatsheets
 ---
 
+A collection of personilized cheatsheets reflecting the workflow of a DevOps Cloud Automation engineer...
+
 * link:/cheatsheets/cheatsheet-ansible/[Ansible]
 * link:/cheatsheets/cheatsheet-asciidoc/[Asciidoc]
+* link:/cheatsheets/cheatsheet-git[git]
 * link:/cheatsheets/cheatsheet-pip[pip]
+* link:/cheatsheets/cheatsheet-tmux[tmux]
 * link:/cheatsheets/cheatsheet-virtualenv[virtualenvs]
 * link:/cheatsheets/cheatsheet-aws/[DRAFT AWS - Draft, work in progress]
 * link:/cheatsheets/cheatsheet-hugo/[DRAFT Hugo]

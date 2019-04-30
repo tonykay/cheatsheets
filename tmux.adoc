@@ -1,10 +1,9 @@
 ---
-title: "Pip Cheatsheet"
+title: "Tmux Cheatsheet"
 date: 2019-04-30
-linktitle: "Pip Cheatsheet"
-slug: cheatsheet-pip
-tags:
-  - cheatsheets
+linktitle: "Tmux Cheatsheet"
+slug: cheatsheet-tmux
+draft: true
 ---
 
 :toc: 
