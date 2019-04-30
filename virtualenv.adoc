@@ -2,14 +2,14 @@
 title: "Pip and Virtualenv Cheatsheet"
 date: 2019-02-17T08:07:38-07:00
 linktitle: "Pip, Virtualenv, and virtualenv manager Cheatsheet"
-slug: cheatsheet-pip
+slug: cheatsheet-virtualenv
 draft: true
 ---
 
 :toc: 
 :toc-title: Sections
 
-=== Basic Pip Commands
+=== Basic virtualenv Commands
 
 .Basic pip commands
 [cols=2]

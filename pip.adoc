@@ -11,62 +11,53 @@ draft: true
 
 === Basic Pip Commands
 
-.Basic pip commands
 [cols=2]
 |===
-| Simple install
+| Install a python package
 | `pip install ansible`
 
-| Install a specfic version
+| Install a specfic package version
 | `pip install ansible==2.7.8`
+
+| Uninstall a python package
+| `pip uninstall ansible`
 
 | See what versions are available (use illegal versioni string!)
 | `pip install ansible==foobar`
 
 | Upgrade a package
 | `pip install --upgrade ansible` or `pip install ansible -U`
-
 |===
-
 
 === Package Management
 
-.Basic pip commands
 [cols=2]
 |===
-| Simple install
-| `pip install ansible`
+| List installed packages
+| `pip list`
+
+| List installed packages
+| `pip list --outdated`
+
+| Upgrade installed package
+|  `pip install --upgrade  ansible`  or `-U` 
+
+| Capture installed packages
+| `pip freeze > requirements.txt`
+
+| Install a dependencies file
+| `pip freeze -r requirements.txt`
 |===
 
-////
-[frame="none",cols=2,width="40%"]
-|===
-|{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">home</i> {{< /rawhtml >}} link:/cheatsheets/index-cheatsheets[Master] 
-| <<TOP,{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">view_list</i> {{< /rawhtml >}}Top of Page>> 
-|===
-////
 
-{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">home</i> {{< /rawhtml >}} link:/cheatsheets/index-cheatsheets[Master] <<TOP,{{< rawhtml >}}<i class="material-icons md-dark md-inactive">view_list</i> {{< /rawhtml >}}Top of Page>> 
+Deleting secondary dependencies - not easy :(
 
-////
-<<TOP,{{< rawhtml >}}<p><i class="material-icons md-dark md-inactive">view_list</i> {{< /rawhtml >}} <<TOP[Top of Page]>> 
-////
+
+link:/cheatsheets/index-cheatsheets[{{< rawhtml >}}<p><i class="material-icons md-dark md-active">home</i> {{< /rawhtml >}}  Master] <<TOP,{{< rawhtml >}}<i class="material-icons md-dark md-active">toc</i> {{< /rawhtml >}}Top of Page>> 
 
 === Isolating and Deploying Dependencies
 
 link:https://12factor.net/dependencies[Isolate Dependencies!]
-Capture packages - pip freeze
-List packages - pip list
-show outdated  pip list --outdated
-Oupdae
-
- pip install --upgrade ansible or -U
-
-load packages from file pip install -r requirements.yml
-
-Uninstall packages  pip uninstall requests
-
-Deleting secondary dependencies - not easy :(
 
 
 
