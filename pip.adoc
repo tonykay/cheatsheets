@@ -7,8 +7,10 @@ tags:
   - cheatsheets
 ---
 
-:toc: 
+:toc2:
 :toc-title: Sections
+
+link:/cheatsheets/index-cheatsheets[{{< rawhtml >}}<p><i class="material-icons md-dark md-active">home</i> {{< /rawhtml >}}  Master CheatSheet Index]
 
 === Basic Pip Commands
 
@@ -29,6 +31,9 @@ tags:
 | Upgrade a package
 | `pip install --upgrade ansible` or `pip install ansible -U`
 |===
+
+
+link:/cheatsheets/index-cheatsheets[{{< rawhtml >}}<p><i class="material-icons md-dark md-active">home</i> {{< /rawhtml >}}  Master CheatSheet Index] <<TOP,{{< rawhtml >}}<i class="material-icons md-dark md-active">toc</i> {{< /rawhtml >}}Top of Page>>
 
 === Package Management
 
